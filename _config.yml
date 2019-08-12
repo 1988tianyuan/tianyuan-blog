@@ -72,6 +72,28 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+plugins:
+  -hexo-qiniu-sync
+qiniu:
+  offline: false
+  sync: true
+  bucket: blog-graph
+  access_key: ds_PsdR6dSSrBKQEZtBEWK2th0b55IfSFOfqTvTv
+  secret_key: 8m1dQ15uqOlxegPVPrXx9dLsSM2tU4PippO52hnt
+  dirPrefix: 
+  urlPrefix: http://img.mantian.site
+  local_dir: cdn
+  update_exist: true
+  image:
+    folder: images
+    extend:
+  js:
+    folder: js
+  css:
+    folder: css
+
+
+
 ## Themes: https://hexo.io/themes/
 theme: next
 
