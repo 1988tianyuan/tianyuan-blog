@@ -6,7 +6,8 @@ categories:
   - 基础知识
 date: 2019-08-12 16:06:00
 ---
-#### Netty是什么
+
+### Netty是什么
 
 Netty是一款用于快速开发高性能网络应用的Java框架，封装了网络编程的复杂性，使网络编程和web技术的最新进展能够比以往更广泛的让开发人员接触到。
 <!--more-->
@@ -58,7 +59,7 @@ Netty能够支持高性能长连接机制，因此在即时通讯和物联网等
 
 一个优秀的开源项目离不开高质量的社区，Netty作为基础组件被众多开源项目和大型互联网企业采用，社区质量也是非常之高，如Apple，Twitter，Google和阿里等大型企业，还有Akka, Vert.x，Hadoop，ElasticSearch, Cassandra等优秀的开源项目，都在给Netty源源不断地贡献代码
 
-{% qnimg 1564638670965.png %}
+![](http://img.mantian.site/images/1564638670965.png)
 
 ### Java NIO
 
@@ -72,13 +73,13 @@ Netty对底层网络模型进行了一系列的封装和抽象，包括NIO和BIO
 
 以下是一个简单的NIO网络模型：
 
-![1564639452945](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564639452945.png)
+![](http://img.mantian.site/201908131112_661.png)
 
 NIO网络模型最重要的组件就是`Selector`，底层基于操作系统的`epoll`或者`kqueue`等机制实现事件驱动式非阻塞IO操作，`Selector`在某些时候又称作`Reactor`（响应器，选择器，分派器......）
 
 在Netty中，`Selector`(或者`Reactor`) 称作`EventLoop`，在Netty中采用的是`单bossEventLoop+多workEventLoop`的模式，由`bossEventLoop`负责响应client的连接请求，并建立连接，由多个`workEventLoop`负责维护客户端socket的数据交互和读写工作，每个`EventLoop`都会在一个独立的线程中执行
 
-![1564642157798](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564642157798.png)
+![](http://img.mantian.site/201908131115_71.png)
 
 ### Netty核心特性浅析
 
@@ -111,7 +112,7 @@ Netty使用不同的事件来通知我们状态的改变或是操作的状态，
 
 Channel的生命周期：
 
-![1564728511092](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564728511092.png)
+![](http://img.mantian.site/201908131118_392.png)
 
 每一个阶段都会产生相应的事件并触发对应的回调，并且在`ChannelActive`和`ChannelInactive`两个状态之间还会产生读写事件，用户事件和错误事件
 
@@ -119,7 +120,7 @@ Channel的生命周期：
 
 既然定义了事件，那就得有相应的事件回调处理器，在Netty中所有回调处理器均实现`ChannelHandler`这个接口，根据入站或出站事件又分为`ChannelInboundHandler`和`ChannelOutboundHandler`
 
-![1564643610452](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564643610452.png)
+![](http://img.mantian.site/201908131118_15.png)
 
 `ChannelHandler`由开发人员自己实现，开发人员可以根据不同的事件实现不同回调处理器的不同方法，例如某个handler需要捕获Channel激活的事件，可以像如下方式实现一个`ChannelInboundHandler`，服务端一旦检测到连接激活，则向客户端回复一条消息：
 
@@ -143,13 +144,13 @@ public class FirstServerHandler extends ChannelInboundHandlerAdapter{
 
 `ChannelPipeline`是一个拦截流经`Channel`入站和出站事件的链条，所有`ChannelHandler`都需要挂载在`ChannelPipeline`上，每一个新创建的`Channel`都会分配一个新的`ChannelPipeline`
 
-![1564731217542](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564731217542.png)
+![](http://img.mantian.site/201908131120_873.png)
 
 上图是事件在每个`ChannelHandler`上的传播顺序
 
 `ChannelHandlerContext`就是`ChannelHandler`和`ChannelPipeline`之间沟通的桥梁，每当一个新的`ChannelHandler`添加到pipeline中时，都会创建一个对应的`ChannelHandlerContext`，其主要功能时管理它所关联的`ChannelHandler`和在同一个pipeline中的其他`ChannelHandler`之间的数据交互
 
-![1564732729637](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564732729637.png)
+![](http://img.mantian.site/201908131120_370.png)
 
 如上图：
 
@@ -202,7 +203,7 @@ compBuf.addComponents(buffer, heapBuffer);
 
 Netty的零拷贝Buffer概念与操作系统层面的零拷贝不是一回事（Netty传输文件时已经通过Java NIO的DirectBuffer实现了基于DMA引擎的零拷贝），Netty的零拷贝描述的是组合buffer时不需要申请新的buffer内存，直接在原buffer的基础上通过`CompositeByteBuf`进行buffer的合并，而Java原生的ByteBuffer在这种情况下需要开辟新的buffer内存：
 
-![1564645475015](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564645475015.png)
+![](http://img.mantian.site/201908131119_969.png)
 
 ##### Universal Communication API
 
@@ -214,8 +215,7 @@ Netty的零拷贝Buffer概念与操作系统层面的零拷贝不是一回事（
 
 Netty整体运行架构如下：
 
-![1564648533067](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564648533067.png)
-
+![](http://img.mantian.site/201908131138_346.png)
    
 
 ### Netty基础使用 （sample）
@@ -411,7 +411,7 @@ Netty已经提供了一些支持目前主流应用层协议的基础通信组件
 
 首先需要根据需要自己设计一个协议，便于解析二进制数据包满足业务需求，下面是一个经典的自定义二进制协议格式：
 
-![1564725187585](C:\Users\admin\AppData\Roaming\Typora\typora-user-images\1564725187585.png)
+![](http://img.mantian.site/201908131121_32.png)
 
 #####  确定序列化算法
 
