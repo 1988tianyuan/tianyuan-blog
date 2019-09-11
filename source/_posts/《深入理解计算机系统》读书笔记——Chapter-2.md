@@ -1,4 +1,4 @@
-title: 《深入理解计算机系统》读书笔记——Chapter 2
+title: 《深入理解计算机系统》读书笔记——Chapter 2(1)
 author: 天渊
 tags:
   - csapp
