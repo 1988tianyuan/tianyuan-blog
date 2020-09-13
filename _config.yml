@@ -81,7 +81,7 @@ deploy:
   type: sftp
   host: 119.23.181.66
   user: root
-  pass: liu_19881104
+  pass: liug_19881104
   remotePath: /root/deploy/static-file/blog
   port: 22
 

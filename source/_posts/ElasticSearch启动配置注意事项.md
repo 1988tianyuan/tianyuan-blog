@@ -28,4 +28,6 @@ discovery.seed_hosts: ["192.168.0.1:9300", "192.168.0.2:9300", "192.168.0.3"]
 cluster.initial_master_nodes: ["node-1", "node-2", "node-3"]
 ```
 
-关于es集群启动过程的细节问题参阅官方文档：[启动es集群](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-bootstrap-cluster.html)
+关于es集群启动过程的细节问题参阅：<br>
+[官网文档：启动es集群](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-bootstrap-cluster.html)<br>
+[elasticsearch初学终极教程: 把Elastic Search在本地跑起来](https://kalasearch.cn/blog/chapter2-run-elastic-search-locally/)

@@ -1,7 +1,9 @@
 title: ElasticSearch分布式原理探究 —— 节点和分片
 author: 天渊
-date: 2019-09-09 17:21:56
 tags:
+  - elasticsearch
+categories: []
+date: 2019-09-09 17:21:00
 ---
 ElasticSearch `节点`和`分片`原理浅析
 <!--more-->
