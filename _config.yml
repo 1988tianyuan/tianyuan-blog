@@ -104,3 +104,9 @@ jsonContent:
     permalink: false
     excerpt: false
     tags: true
+
+# hexo-admin authentification
+admin:
+  username: 1988tianyuan
+  password_hash: $2a$10$zuFNVO9MquL7UuD1eX3l0ey51Vf6Te/S3DJdwzzlTOk48zBkrp7n.
+  secret: Rr5s1svDfuswU09QO1uCssWlFtaUnXHL
